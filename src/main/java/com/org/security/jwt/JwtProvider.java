@@ -25,11 +25,10 @@ public class JwtProvider {
     private static final Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
    
-    @Value("${config.oauth2.clientSecret}")
-    private String jwtSecret;
+   
+    private String jwtSecret = System.getenv("CLIENT_SECRET");
 
-    @Value("${config.oauth2.token-validity-in-seconds}")
-    private int jwtExpiration;
+    private int jwtExpiration = 86400 ;
 
     public String generateJwtToken(Authentication authentication) {
 

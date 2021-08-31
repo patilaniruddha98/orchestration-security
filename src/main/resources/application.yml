@@ -4,7 +4,7 @@ spring:
         
     datasource:
         driverClassName: com.mysql.cj.jdbc.Driver
-        url: "jdbc:mysql://database-2.cp5dbw0n4szl.ap-south-1.rds.amazonaws.com:3306/sboauth2db"
+        url: "jdbc:mysql://database-1.cp5dbw0n4szl.ap-south-1.rds.amazonaws.com:3306/sboauth2db"
         username: "admin"
         password: "password"
        
