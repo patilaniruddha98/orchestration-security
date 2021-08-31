@@ -1,0 +1,21 @@
+execute sql-query
+
+run the application
+
+check in Folder resource/image
+
+get : localhost:8080/api/products/viewAll
+
+POST : localhost:8080/api/auth/signin
+
+Authorization : BasicAuth 
+username : mdits, password : password.
+
+Body , raw, text --> json
+
+{
+"username":"john@mdits.com",
+"password":"password"
+}
+
+success.
