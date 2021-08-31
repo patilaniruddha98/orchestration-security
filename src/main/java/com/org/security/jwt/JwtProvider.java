@@ -4,6 +4,7 @@ import java.util.Date;
 
 
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +27,7 @@ public class JwtProvider {
 
    
    
-    private String jwtSecret = System.getenv("CLIENT_SECRET");
+    private String jwtSecret = "password";
 
     private int jwtExpiration = 86400 ;
 

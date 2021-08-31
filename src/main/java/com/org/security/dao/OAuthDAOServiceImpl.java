@@ -28,7 +28,7 @@ public class OAuthDAOServiceImpl implements OAuthDAOService {
 		Collection<PermissionGrantedAuthority> permissionAuthoritiesList = new ArrayList<>();
 		UserEntity userEntity =null;
 		
-		List<UserEntity> list = jdbcTemplate.query("SELECT * FROM USER WHERE EMAIL_ID=?", new String[] { emailId },
+		List<UserEntity> list = jdbcTemplate.query("SELECT * FROM user WHERE EMAIL_ID=?", new String[] { emailId },
 				(ResultSet rs, int rowNum) -> {
 						UserEntity user = new UserEntity();
 						user.setEmailId(emailId);

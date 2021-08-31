@@ -2,6 +2,7 @@ package com.org.security.controller;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import javax.validation.Valid;
@@ -71,16 +72,18 @@ public class AuthRestAPIs {
 		System.out.println(encoder.matches(loginRequest.getPassword(), "$2a$10$jbIi/RIYNm5xAW9M7IaE5.WPw6BZgD8wcpkZUg0jm8RHPtdfDcMgm"));
 		System.out.println(loginRequest.getUsername());
 		System.out.println(loginRequest.getPassword());
+		System.out.println(accessService.existUserByEmailId(loginRequest.getUsername()));
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-
+		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 
+	
 		String jwt = jwtProvider.generateJwtToken(authentication);
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 		User data=accessService.getByEmailId(loginRequest.getUsername());
 		
-		 
+		
 		
 		return ResponseEntity.ok(new JwtResponse(data.getId(),data.getName(),jwt, userDetails.getUsername(),data.getMobile(),data.getGender(),data.getDepartment(),data.getCity(),data.getHiredDate(), userDetails.getAuthorities()));
 	}
@@ -201,6 +204,11 @@ public class AuthRestAPIs {
 		return accessService.setUpPassword(id, setUpPassword);
 	}
 	
+	
+	@GetMapping("/api/auth/getallUsers")
+	public List<User> getAllDataUser() {
+		return userRepository.findAll();
+	}
 	
 	
 	

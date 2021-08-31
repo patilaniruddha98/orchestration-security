@@ -16,6 +16,13 @@ import com.org.security.config.PermissionGrantedAuthority;
 public class UserEntity {
 	
 	
+	@Override
+	public String toString() {
+		return "UserEntity [id=" + id + ", name=" + name + ", emailId=" + emailId + ", password=" + password
+				+ ", grantedAuthoritiesList=" + grantedAuthoritiesList + ", permissionGrantedAuthorities="
+				+ permissionGrantedAuthorities + "]";
+	}
+
 	private String id;
 	private String name;
 	private String emailId;
