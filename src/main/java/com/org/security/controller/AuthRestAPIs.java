@@ -69,6 +69,7 @@ public class AuthRestAPIs {
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
 		System.out.println(encoder.encode("password"));
 
+		
 		System.out.println(encoder.matches(loginRequest.getPassword(), "$2a$10$jbIi/RIYNm5xAW9M7IaE5.WPw6BZgD8wcpkZUg0jm8RHPtdfDcMgm"));
 		System.out.println(loginRequest.getUsername());
 		System.out.println(loginRequest.getPassword());
